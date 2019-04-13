@@ -95,8 +95,13 @@ function getDistanceBetweenPoints(x1, y1, x2, y2) {
  *   5*x = 0         => 0
  */
 function getLinearEquationRoot(a, b) {
-    throw new Error('Not implemented');
+//     throw new Error('Not implemented');
+
+if (0 !== +a) return (-b / a);
+
 }
+
+
 
 
 /**
@@ -117,7 +122,11 @@ function getLinearEquationRoot(a, b) {
  *   (0,1) (1,2)     => 0
  */
 function getAngleBetweenVectors(x1, y1, x2, y2) {
-    throw new Error('Not implemented');
+    // throw new Error('Not implemented');
+    let dot = x1*x2 + y1*y2      
+    let det = x1*y2 - y1*x2 
+    let angle = Math.abs(Math.atan2(det, dot)); 
+return angle;
 }
 
 /**
@@ -133,7 +142,8 @@ function getAngleBetweenVectors(x1, y1, x2, y2) {
  *     0     => 0
  */
 function getLastDigit(value) {
-    throw new Error('Not implemented');
+    // throw new Error('Not implemented');
+    return +value.toString().substr(-1);
 }
 
 
@@ -149,7 +159,8 @@ function getLastDigit(value) {
  * '-525.5'     => -525.5
  */
 function parseNumberFromString(value) {
-    throw new Error('Not implemented');
+    // throw new Error('Not implemented');
+    return Number(value);
 }
 
 /**
@@ -166,7 +177,10 @@ function parseNumberFromString(value) {
  *   1,2,3   => 3.741657386773941
  */
 function getParallelipidedDiagonal(a,b,c) {
-    throw new Error('Not implemented');
+    // throw new Error('Not implemented');
+    //d2=a2+b2+c2
+    let d = a*a  + b*b + c*c;
+    return Math.sqrt(d,2);
 }
 
 /**
@@ -187,7 +201,10 @@ function getParallelipidedDiagonal(a,b,c) {
  *   1678, 3  => 2000
  */
 function roundToPowerOfTen(num, pow) {
-    throw new Error('Not implemented');
+    // throw new Error('Not implemented');
+    pow = 10**pow;
+    return Math.round(num / pow) * pow;
+    
 }
 
 /**
@@ -208,8 +225,17 @@ function roundToPowerOfTen(num, pow) {
  *   17 => true
  */
 function isPrime(n) {
-    throw new Error('Not implemented');
-}
+    // throw new Error('Not implemented');
+        let prime = true;
+        for (let i = 2; i < n; i++) {
+            if (n % i == 0) {
+                prime = false;
+                break;
+            }
+        }
+        return prime && (n > 1);
+    }
+
 
 /**
  * Tries to convert value to number and returns it if conversion was successfull;
@@ -227,7 +253,9 @@ function isPrime(n) {
  *   toNumber(new Number(42), 0) => 42
  */
 function toNumber(value, def) {
-    throw new Error('Not implemented');
+//     throw new Error('Not implemented');
+let result = Number(value);
+return (result) ? result : def;
 }
 
 module.exports = {
