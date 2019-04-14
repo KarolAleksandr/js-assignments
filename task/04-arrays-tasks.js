@@ -481,7 +481,8 @@ function toStringList(arr) {
  *      { country: 'Russia',  city: 'Saint Petersburg' }
  */
 function sortCitiesArray(arr) {
-   throw new Error('Not implemented');
+   // throw new Error('Not implemented');
+   return arr.sort((a, b) => a.country.localeCompare(b.country) || a.city.localeCompare(b.city));
 }
 
 /**
@@ -503,7 +504,8 @@ function sortCitiesArray(arr) {
  *           [0,0,0,0,1]]   
  */
 function getIdentityMatrix(n) {
-   throw new Error('Not implemented');
+   // throw new Error('Not implemented');
+  
 }
 
 /**
@@ -615,7 +617,10 @@ function selectMany(arr, childrenSelector) {
  *   [[[ 1, 2, 3]]], [ 0, 0, 1 ]      => 2        (arr[0][0][1])
  */
 function getElementByIndexes(arr, indexes) {
-    throw new Error('Not implemented');
+   //  throw new Error('Not implemented');
+    
+   let res = indexes.map((el,ind) => arr = arr[el]);
+   return res[res.length-1];
 }
 
 
@@ -623,7 +628,7 @@ function getElementByIndexes(arr, indexes) {
  * Swaps the head and tail of the specified array:
  * the head (first half) of array move to the end, the tail (last half) move to the start. 
  * The middle element (if exists) leave on the same position.
- * 
+ * g
  *  
  * @param {array} arr
  * @return {array}
@@ -638,7 +643,29 @@ function getElementByIndexes(arr, indexes) {
  * 
  */
 function swapHeadAndTail(arr) {
-    throw new Error('Not implemented');
+   //  throw new Error('Not implemented');
+   let oddLength = false;
+   let  evenLength = false;
+   let middle;
+   let head;
+   let tail;
+   
+   (arr.length % 2)? oddLength = arr.length: evenLength = arr.length;
+   if(evenLength) {
+      middle = evenLength / 2;
+      head = arr.slice(0,middle);
+      tail = arr.slice(middle);
+      return tail.concat(head);
+      
+   } else if(oddLength) {
+  
+      middle = Math.floor(oddLength / 2);
+      head = arr.slice(0,middle ); 
+      tail = arr.slice(middle + 1);
+      return tail.concat(arr[middle],...head);  
+   
+}
+
 }
 
 
